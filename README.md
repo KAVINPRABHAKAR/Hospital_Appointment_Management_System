@@ -134,7 +134,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Step 9: Open in Browser
+### Step 10: Open in Browser
    
     Main Application
 
