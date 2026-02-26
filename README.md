@@ -142,7 +142,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Now you can:
+### Now you can See:
 
     - Dashboard Page
 
