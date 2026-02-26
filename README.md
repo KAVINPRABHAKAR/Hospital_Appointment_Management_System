@@ -4,6 +4,7 @@ A web-based Hospital Appointment Management System built using Django.
 This system allows patients to book appointments online and enables doctors/admin to manage schedules efficiently.
 
 
+
 ## Project Description
 
 The Hospital Appointment Management System is designed to simplify the process of booking and managing hospital appointments.
@@ -18,6 +19,7 @@ The Hospital Appointment Management System is designed to simplify the process o
     - Reduce manual paperwork
 
 This project demonstrates backend logic, database handling, and full-stack web development using Django.
+
 
 
 ## Features
@@ -37,6 +39,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
     - Secure Authentication System
 
 
+
 ## Technologies Used
 
     - Backend: Python, Django (MTV Architecture) 
@@ -48,6 +51,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
     - Reporting: ReportLab (PDF Engine) 
     
     - Data Handling: Pandas & NumPy (Core analytics logic) 
+
 
 
 ## ⚙️ Installation & Setup
