@@ -19,19 +19,19 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ## Features
 
-- Patient Registration & Login
+    - Patient Registration & Login
     
-- Doctor Registration & Management
+    - Doctor Registration & Management
     
-- Book Appointment
+    - Book Appointment
     
-- Appointment Approval / Cancellation
+    - Appointment Approval / Cancellation
     
-- Admin Dashboard
+    - Admin Dashboard
     
-- Database Management using SQLite
+    - Database Management using SQLite
     
-- Secure Authentication System
+    - Secure Authentication System
 
 
 ## Technologies Used
