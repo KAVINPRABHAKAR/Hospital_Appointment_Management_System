@@ -156,7 +156,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
     - Daily OPD Reports Page
 
-    - Logout
+    - Logout Option
 
 
 
