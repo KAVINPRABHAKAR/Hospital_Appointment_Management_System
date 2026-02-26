@@ -39,4 +39,3 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ## ⚙️ Installation & Setup
 
-https://github.com/KAVINPRABHAKAR/Hospital_Appointment_Management_System.git
