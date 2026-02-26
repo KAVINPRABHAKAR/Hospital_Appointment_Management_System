@@ -115,7 +115,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ### Step 9: Open in Browser
 
-    Visit
+    Main Application
 
     http://127.0.0.1:8000/
 
