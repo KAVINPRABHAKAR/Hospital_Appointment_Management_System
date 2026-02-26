@@ -137,3 +137,10 @@ This project demonstrates backend logic, database handling, and full-stack web d
     - Manage Appointments
 
     - Access Admin Panel
+
+
+## Output Screenshots
+
+## Output Screenshots
+
+![Project Output](Output_Screenshots/login.png)
