@@ -10,6 +10,7 @@ This system allows patients to book appointments online and enables doctors/admi
 The Hospital Appointment Management System is designed to simplify the process of booking and managing hospital appointments.
 
 ### It helps:
+    
     - Patients book appointments online
     
     - Doctors manage their schedules
@@ -54,13 +55,13 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 
 
 ### step 1: Clone the Repository
 
-    git clonehttps://github.com/KAVINPRABHAKAR/Hospital_Appointment_Management_System.git
+    git clone https://github.com/KAVINPRABHAKAR/Hospital_Appointment_Management_System.git
 
 
 
@@ -115,21 +116,14 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ### Step 9: Open in Browser
 
-    Main Application
-
-    http://127.0.0.1:8000/
-
     Admin Panel
 
     http://127.0.0.1:8000/admin/
 
 
 
-## Project Successfully Running
-
-
-
 ### Now you can:
+    
     - Register as Patient
 
     - Login as Doctor
@@ -139,11 +133,34 @@ This project demonstrates backend logic, database handling, and full-stack web d
     - Access Admin Panel
 
 
+
+### Step 9: Open in Browser
+   
+    Main Application
+
+    http://127.0.0.1:8000/
+
+
+
+### Now you can:
+
+    - Dashboard Page
+
+    - Register New Patient Page
+
+    - Search Patient Page 
+
+    - Doctor Wise Queues Page
+
+    - Doctor Wise Analytics Page
+
+    - Daily OPD Reports Page
+
+    - Logout
+
+
+
 ## Output Screenshots
-
-
-
-### Admin Page
 
 
 
