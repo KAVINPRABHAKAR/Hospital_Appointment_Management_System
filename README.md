@@ -142,7 +142,10 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ## Output Screenshots
 
 
+
 ### Admin Page
+
+
 
 ![Project Output](Output_Screenshots/admin.png)
 
@@ -171,13 +174,18 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ![Project Output](Output_Screenshots/admin8.png)
 
 
+
 ### Login Page
+
 
 
 ![Project Output](Output_Screenshots/login.png)
 
 
+
 ### Dashboard Page Before Patient Registration
+
+
 
 ![Project Output](Output_Screenshots/dashboard.png)
 
@@ -185,7 +193,9 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ![Project Output](Output_Screenshots/dashboard1.png)
 
 
+
 ### Patient Registration
+
 
 
 ![Project Output](Output_Screenshots/patient_register.png)
@@ -212,13 +222,18 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ![Project Output](Output_Screenshots/patient_register7.png)
 
 
+
 ### Dashboard Page After Patient Registration
+
 
 
 ![Project Output](Output_Screenshots/dashboard2.png)
 
 
+
 ### Doctor Queues
+
+
 
 ![Project Output](Output_Screenshots/queues.png)
 
@@ -232,7 +247,9 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ![Project Output](Output_Screenshots/queues3.png)
 
 
+
 ### Doctor Wise Analytics
+
 
 
 ![Project Output](Output_Screenshots/analytics.png)
@@ -243,14 +260,6 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ![Project Output](Output_Screenshots/analytics2.png)
 
-
-### Daily OPD Pdf Report
-
-
-![Project Output](Output_Screenshots/pdf_page.png)
-
-
-![Project Output](Output_Screenshots/pdf_page1.png)
 
 
 ### Search Patient Catlog
@@ -263,3 +272,15 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 ![Project Output](Output_Screenshots/search2.png)
+
+
+### Daily OPD Pdf Report
+
+
+
+![Project Output](Output_Screenshots/pdf_page.png)
+
+
+![Project Output](Output_Screenshots/pdf_page1.png)
+
+
