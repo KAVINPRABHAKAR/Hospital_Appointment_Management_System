@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4 align-items-center">
+    <div class="col-md-8">
+        <h2 class="fw-bold text-dark"><i class="bi bi-person-video3 me-2 text-primary"></i>Real-Time Doctor Queues</h2>
+        <p class="text-muted">Live patient monitoring and consultation management system.</p>
+    </div>
+    <div class="col-md-4 text-md-end d-flex justify-content-md-end gap-2">
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-sm d-flex align-items-center shadow-sm">
+            <i class="bi bi-house-door me-1"></i> Dashboard
+        </a>
+        <button class="btn btn-primary btn-sm d-flex align-items-center shadow-sm" onclick="location.reload();">
+            <i class="bi bi-arrow-clockwise me-1"></i> Refresh Queue
+        </button>
+    </div>
+</div>
+
+<div class="row g-4">
+    {% for doctor, patients in queue_data.items %}
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 {% if user.doctor == doctor %}border-start border-primary border-4{% endif %}">
+            <div class="card-header {% if user.doctor == doctor %}bg-primary text-white{% else %}bg-dark text-white{% endif %} d-flex justify-content-between align-items-center py-3">
+                <div>
+                    <h6 class="mb-0 fw-bold">Dr. {{ doctor.name }}</h6>
+                    <small class="opacity-75">{{ doctor.department.name }}</small>
+                </div>
+                <span class="badge bg-light text-dark">Room {{ doctor.room_number }}</span>
+            </div>
+            
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    {% for p in patients %}
+                    <li class="list-group-item py-3 {% if p.is_emergency %}bg-danger-subtle border-start border-danger border-3{% endif %}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <span class="badge {% if p.is_emergency %}bg-danger{% else %}bg-primary{% endif %} me-3 p-2">
+                                    #{{ p.token_number }}
+                                </span>
+                                <div>
+                                    <div class="fw-bold {% if p.is_emergency %}text-danger{% endif %}">
+                                        {{ p.patient_name }}
+                                        {% if p.is_emergency %}
+                                            <i class="bi bi-exclamation-triangle-fill ms-1" title="Emergency Case"></i>
+                                        {% endif %}
+                                    </div>
+                                    <small class="text-muted">
+                                        <i class="bi bi-clock me-1"></i>Est: {{ p.estimated_time|date:"H:i A" }}
+                                    </small>
+                                </div>
+                            </div>
+
+                            {% if user.is_superuser or user.doctor == doctor %}
+                            <form action="{% url 'mark_consulted' p.id %}" method="POST" class="ms-2">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-success shadow-sm px-3">
+                                    <i class="bi bi-check2-circle me-1"></i>Done
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item text-muted text-center py-5">
+                        <i class="bi bi-person-x fs-2 d-block mb-2"></i>
+                        No pending patients in queue
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            {% if patients %}
+            <div class="card-footer bg-white border-top-0 py-3 text-center">
+                <small class="text-primary fw-bold">
+                    <i class="bi bi-people-fill me-1"></i>Total Waiting: {{ patients|length }}
+                </small>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="text-center mt-5 mb-4">
+    <a href="{% url 'dashboard' %}" class="text-decoration-none text-muted small">
+        <i class="bi bi-arrow-left"></i> Exit to Dashboard
+    </a>
+</div>
+
+<style>
+    .bg-danger-subtle { background-color: #fff5f5; }
+    .card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 12px 20px rgba(0,0,0,0.1) !important;
+    }
+</style>
+{% endblock %}

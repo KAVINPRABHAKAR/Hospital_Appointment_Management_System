@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow-lg border-0">
+    <div class="card-header bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+        <h4 class="mb-0 fw-bold"><i class="bi bi-search me-2"></i>Patient Record Search</h4>
+        <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-light border-0">
+            <i class="bi bi-house-door-fill"></i> Dashboard
+        </a>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="GET" action="{% url 'search_patient' %}" class="d-flex mb-4">
+            <div class="input-group input-group-lg shadow-sm">
+                <span class="input-group-text bg-white border-end-0 text-muted">
+                    <i class="bi bi-person-badge"></i>
+                </span>
+                <input type="text" name="q" class="form-control border-start-0" placeholder="Search by Patient Name or Token Number..." value="{{ query|default:'' }}" required>
+                <button type="submit" class="btn btn-primary px-4 fw-bold">
+                    <i class="bi bi-search me-1"></i> Search
+                </button>
+            </div>
+        </form>
+
+        {% if results %}
+        <h5 class="text-muted mb-3"><i class="bi bi-clipboard-check me-2"></i>Results for: <strong>"{{ query }}"</strong></h5>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle border">
+                <thead class="table-light">
+                    <tr>
+                        <th class="py-3">Token</th>
+                        <th class="py-3">Patient Name</th>
+                        <th class="py-3">Department</th>
+                        <th class="py-3">Assigned Doctor</th>
+                        <th class="py-3 text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in results %}
+                    <tr>
+                        <td><span class="badge bg-secondary p-2">#{{ p.token_number }}</span></td>
+                        <td class="fw-bold text-dark">{{ p.patient_name }}</td>
+                        <td><span class="text-muted">{{ p.doctor.department.name }}</span></td>
+                        <td>Dr. {{ p.doctor.name }}</td>
+                        <td class="text-center">
+                            <span class="badge rounded-pill {% if p.status == 'Consulted' %}bg-success{% else %}bg-warning text-dark{% endif %} px-3 py-2">
+                                <i class="bi {% if p.status == 'Consulted' %}bi-check-circle{% else %}bi-hourglass-split{% endif %} me-1"></i>
+                                {{ p.status }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% elif query %}
+        <div class="text-center py-5">
+            <i class="bi bi-search-heart text-muted fs-1 d-block mb-3"></i>
+            <h4 class="text-muted">No records found for "{{ query }}"</h4>
+            <p class="text-muted mb-4">Please double-check the spelling or try a different token number.</p>
+            <a href="{% url 'search_patient' %}" class="btn btn-outline-primary btn-sm">Clear Search</a>
+        </div>
+        {% else %}
+        <div class="text-center py-4 text-muted">
+            <p><i class="bi bi-info-circle me-1"></i> Enter a patient details above to retrieve current status and appointment history.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="text-center mt-4 mb-4">
+    <a href="{% url 'dashboard' %}" class="text-decoration-none text-muted small">
+        <i class="bi bi-arrow-left"></i> Return to Main Dashboard
+    </a>
+</div>
+{% endblock %}

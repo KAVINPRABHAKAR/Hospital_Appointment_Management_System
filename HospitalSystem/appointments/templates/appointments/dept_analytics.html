@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold"><i class="bi bi-building me-2"></i>Department Load Analysis</h2>
+        <a href="{% url 'analytics_report' %}" class="btn btn-outline-primary shadow-sm">
+            <i class="bi bi-person-badge me-1"></i> Switch to Doctor View
+        </a>
+    </div>
+
+    <div class="row g-4">
+        {% for dept in dept_workload %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h5 class="fw-bold mb-0">{{ dept.name }}</h5>
+                        {% if dept.pending_count > 10 %}
+                            <span class="badge bg-danger">Congested</span>
+                        {% elif dept.pending_count > 0 %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-light text-muted">Idle</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-flex align-items-end justify-content-between mb-2">
+                        <div>
+                            <span class="display-6 fw-bold text-primary">{{ dept.pending_count }}</span>
+                            <small class="text-muted">Waiting</small>
+                        </div>
+                        <div class="text-end">
+                            <span class="fw-bold text-success">{{ dept.consulted_count }}</span>
+                            <small class="text-muted d-block">Today's Completions</small>
+                        </div>
+                    </div>
+
+                    <div class="progress" style="height: 8px;">
+                        <div class="progress-bar {% if dept.pending_count > 10 %}bg-danger{% else %}bg-primary{% endif %}" 
+                             style="width: {{ dept.pending_count }}0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

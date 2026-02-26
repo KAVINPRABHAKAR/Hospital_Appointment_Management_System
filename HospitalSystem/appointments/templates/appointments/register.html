@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5"> 
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-person-plus-fill me-2"></i>Patient Registration</h4>
+                <a href="{% url 'dashboard' %}" class="btn btn-sm btn-outline-light border-0">
+                    <i class="bi bi-house-door-fill"></i> Dashboard
+                </a>
+            </div>
+
+            <div class="card-body p-4">
+                <form method="POST" id="registrationForm">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Full Name</label>
+                        <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter patient name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Age</label>
+                        <input type="number" name="age" class="form-control form-control-lg" placeholder="Enter age" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Select Department</label>
+                        <select id="departmentSelect" class="form-select form-select-lg" required>
+                            <option value="" selected disabled>-- Choose Department --</option>
+                            {% for dept in departments %}
+                                <option value="{{ dept.id }}">{{ dept.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Select Doctor</label>
+                        <select id="doctorSelect" name="doctor" class="form-select form-select-lg" disabled required>
+                            <option value="" selected disabled>Please select department first...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check form-switch mb-4">
+                        <input class="form-check-input" type="checkbox" name="emergency" id="emergencySwitch">
+                        <label class="form-check-label text-danger fw-bold" for="emergencySwitch">
+                            <i class="bi bi-exclamation-triangle-fill me-1"></i>Emergency Priority Case
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm fw-bold">
+                        Generate Token <i class="bi bi-ticket-perforated ms-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{% url 'dashboard' %}" class="text-decoration-none text-muted small">
+                <i class="bi bi-arrow-left"></i> Return to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Data mapping for Chained Dropdown logic
+    const doctorData = {
+        {% for dept in departments %}
+            "{{ dept.id }}": [
+                {% for doc in doctors %}
+                    {% if doc.department.id == dept.id %}
+                        { id: "{{ doc.id }}", name: "Dr. {{ doc.name }}" },
+                    {% endif %}
+                {% endfor %}
+            ],
+        {% endfor %}
+    };
+
+    const deptSelect = document.getElementById('departmentSelect');
+    const docSelect = document.getElementById('doctorSelect');
+
+    deptSelect.addEventListener('change', function() {
+        const deptId = this.value;
+        const filteredDoctors = doctorData[deptId] || [];
+
+        // Reset Doctor selection
+        docSelect.innerHTML = '<option value="" selected disabled>Choose a Doctor...</option>';
+        
+        if (filteredDoctors.length > 0) {
+            docSelect.disabled = false;
+            filteredDoctors.forEach(doc => {
+                const option = document.createElement('option');
+                option.value = doc.id;
+                option.textContent = doc.name;
+                docSelect.appendChild(option);
+            });
+        } else {
+            docSelect.disabled = true;
+            docSelect.innerHTML = '<option value="" selected disabled>No doctors available in this department</option>';
+        }
+    });
+</script>
+{% endblock %}

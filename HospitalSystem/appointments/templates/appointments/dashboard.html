@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-5 align-items-center">
+    <div class="col-md-8">
+        <h1 class="fw-bold text-dark mb-1">Hospital OPD Dashboard</h1>
+        <p class="text-secondary fs-5">Real-time management for Patient Appointments & Doctor Queues.</p>
+    </div>
+    <div class="col-md-4 text-md-end">
+        <span class="badge bg-white text-dark shadow-sm p-2 px-3 border">
+            <i class="bi bi-calendar3 me-2 text-primary"></i>{% now "jS F Y" %}
+        </span>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card bg-primary text-white border-0 shadow">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase opacity-75 small fw-bold">Waiting Patients</h6>
+                        <h2 class="display-5 fw-bold mb-0">{{ total_pending }}</h2>
+                    </div>
+                    <i class="bi bi-people fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-success text-white border-0 shadow">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase opacity-75 small fw-bold">Consulted Today</h6>
+                        <h2 class="display-5 fw-bold mb-0">{{ total_consulted }}</h2>
+                    </div>
+                    <i class="bi bi-check2-circle fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-dark text-white border-0 shadow">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="text-uppercase opacity-75 small fw-bold">On-Duty Doctors</h6>
+                        <h2 class="display-5 fw-bold mb-0">{{ doctors_count }}</h2>
+                    </div>
+                    <i class="bi bi-person-badge fs-1 opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center action-card">
+            <div class="icon-box bg-primary-subtle text-primary rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-person-plus fs-2"></i>
+            </div>
+            <h5 class="fw-bold">Registration</h5>
+            <p class="text-muted small">Register new patients and generate unique tokens.</p>
+            <a href="{% url 'register_patient' %}" class="btn btn-outline-primary btn-sm stretched-link">Open Module</a>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center action-card">
+            <div class="icon-box bg-success-subtle text-success rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi- cardiopulmonary fs-2"></i>
+                <i class="bi bi-activity fs-2"></i>
+            </div>
+            <h5 class="fw-bold">Doctor Queues</h5>
+            <p class="text-muted small">Live tracking of patient queues for every department.</p>
+            <a href="{% url 'doctor_queues' %}" class="btn btn-outline-success btn-sm stretched-link">Live View</a>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center action-card">
+            <div class="icon-box bg-info-subtle text-info rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-search fs-2"></i>
+            </div>
+            <h5 class="fw-bold">Search Records</h5>
+            <p class="text-muted small">Quickly find patient details via Name or Token #.</p>
+            <a href="{% url 'search_patient' %}" class="btn btn-outline-info btn-sm stretched-link">Search Now</a>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card h-100 border-0 shadow-sm p-4 text-center action-card">
+            <div class="icon-box bg-warning-subtle text-warning rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                <i class="bi bi-bar-chart-line fs-2"></i>
+            </div>
+            <h5 class="fw-bold">OPD Analytics</h5>
+            <p class="text-muted small">Workload summaries and department-wise reports.</p>
+            <a href="{% url 'analytics_report' %}" class="btn btn-outline-warning btn-sm stretched-link">View Stats</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .action-card {
+        transition: all 0.3s ease;
+    }
+    .action-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.1) !important;
+    }
+    .bg-primary-subtle { background-color: #e7f1ff; }
+    .bg-success-subtle { background-color: #e6fcf5; }
+    .bg-info-subtle { background-color: #e7faff; }
+    .bg-warning-subtle { background-color: #fff9db; }
+</style>
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2 class="fw-bold text-dark"><i class="bi bi-bar-chart-line-fill me-2 text-primary"></i>Operational Analytics</h2>
+        <p class="text-muted">Real-time department workload and patient distribution reports.</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a href="{% url 'export_pdf' %}" class="btn btn-danger btn-sm shadow-sm">
+            <i class="bi bi-file-earmark-pdf me-1"></i> Export Daily PDF
+        </a>
+        <button class="btn btn-outline-primary btn-sm" onclick="window.print()">
+            <i class="bi bi-printer me-1"></i> Print Report
+        </button>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary btn-sm shadow-sm">
+            <i class="bi bi-house-door me-1"></i> Dashboard
+        </a>
+    </div>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm bg-primary text-white p-3">
+            <small class="opacity-75">Reporting Period</small>
+            <h5 class="mb-0 fw-bold">Today, {% now "jS F Y" %}</h5>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm p-3 border-start border-primary border-4">
+            <small class="text-muted">Total Active Departments</small>
+            <h5 class="mb-0 fw-bold text-primary">{{ dept_workload|length }}</h5>
+        </div>
+    </div>
+</div>
+
+<h5 class="fw-bold mb-3"><i class="bi bi-building me-2"></i>Department Overview</h5>
+<div class="row g-3 mb-5">
+    {% for dept in dept_workload %}
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="fw-bold mb-0">{{ dept.name }}</h6>
+                    <span class="badge {% if dept.pending_count > 10 %}bg-danger{% elif dept.pending_count > 0 %}bg-success{% else %}bg-light text-muted{% endif %} rounded-pill">
+                        {{ dept.pending_count }} Waiting
+                    </span>
+                </div>
+                <div class="progress" style="height: 6px; border-radius: 10px;">
+                    <div class="progress-bar {% if dept.pending_count > 10 %}bg-danger{% else %}bg-primary{% endif %}" 
+                         style="width: {% if dept.pending_count > 0 %}{{ dept.pending_count }}0%{% else %}2%{% endif %};">
+                    </div>
+                </div>
+                <div class="mt-2 d-flex justify-content-between">
+                    <small class="text-muted">Completed: <strong>{{ dept.consulted_count }}</strong></small>
+                    <small class="text-primary fw-bold">{{ dept.doctor_set.count }} Doctors</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="card shadow-lg border-0 mb-4">
+    <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="fw-bold mb-0">Doctor-wise Detailed Workload</h5>
+        <span class="badge bg-info-subtle text-info border border-info">Live Updates</span>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table align-middle table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Doctor Name</th>
+                        <th>Department</th>
+                        <th>Total Load</th>
+                        <th style="width: 20%;">Intensity</th>
+                        <th class="pe-4">Current Patient List</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in workload %}
+                    <tr>
+                        <td class="ps-4">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary-subtle text-primary rounded-circle p-2 me-3">
+                                    <i class="bi bi-person-pulse"></i>
+                                </div>
+                                <span class="fw-bold text-dark">Dr. {{ item.doctor__name }}</span>
+                            </div>
+                        </td>
+                        <td><span class="text-muted small">{{ item.doctor__department__name|default:"General" }}</span></td>
+                        <td><span class="fs-5 fw-bold">{{ item.total_patients }}</span></td>
+                        <td>
+                            <div class="progress shadow-sm" style="height: 10px; border-radius: 10px;">
+                                <div class="progress-bar {% if item.total_patients > 15 %}bg-danger{% elif item.total_patients > 8 %}bg-warning{% else %}bg-success{% endif %}" 
+                                     style="width: {{ item.total_patients }}0%;">
+                                </div>
+                            </div>
+                        </td>
+                        <td class="pe-4">
+                            <div class="patient-name-container">
+                                {% for p in item.patient_list %}
+                                    <span class="badge bg-light text-dark border fw-normal mb-1">
+                                        #{{ p.token_number }} {{ p.patient_name }}
+                                    </span>
+                                {% empty %}
+                                    <small class="text-muted">No active patients</small>
+                                {% endfor %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center py-5 text-muted">
+                            <i class="bi bi-graph-down fs-1 d-block mb-2"></i>
+                            No consultation data available for today yet.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mb-5">
+    <a href="{% url 'dashboard' %}" class="text-decoration-none text-muted small">
+        <i class="bi bi-arrow-left"></i> Return to Main Dashboard
+    </a>
+</div>
+
+<style>
+    .bg-primary-subtle { background-color: #eef2ff; }
+    .progress { background-color: #e9ecef; }
+    .patient-name-container {
+        max-height: 80px;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 4px 0;
+    }
+    .patient-name-container::-webkit-scrollbar { width: 3px; }
+    .patient-name-container::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+    @media print {
+        .navbar, .btn, .breadcrumb, footer, .text-center, .btn-danger { display: none !important; }
+        .card { box-shadow: none !important; border: 1px solid #ddd !important; }
+        .patient-name-container { max-height: none; overflow: visible; }
+    }
+</style>
+{% endblock %}
