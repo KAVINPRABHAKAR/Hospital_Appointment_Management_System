@@ -144,3 +144,25 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ## Output Screenshots
 
 ![Project Output](Output_Screenshots/login.png)
+
+![Project Output](Output_Screenshots/dashboard.png)
+
+![Project Output](Output_Screenshots/dashboard1.png)
+
+![Project Output](Output_Screenshots/patient_register.png)
+
+![Project Output](Output_Screenshots/patient_register1.png)
+
+![Project Output](Output_Screenshots/patient_register2.png)
+
+![Project Output](Output_Screenshots/patient_register3.png)
+
+![Project Output](Output_Screenshots/patient_register4.png)
+
+![Project Output](Output_Screenshots/patient_register5.png)
+
+![Project Output](Output_Screenshots/patient_register6.png)
+
+![Project Output](Output_Screenshots/patient_register7.png)
+
+![Project Output](Output_Screenshots/dashboard2.png)
