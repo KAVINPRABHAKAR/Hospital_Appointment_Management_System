@@ -20,11 +20,17 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ## Features
 
     - Patient Registration & Login
+    
     - Doctor Registration & Management
+    
     - Book Appointment
+    
     - Appointment Approval / Cancellation
+    
     - Admin Dashboard
+    
     - Database Management using SQLite
+    
     - Secure Authentication System
 
 
