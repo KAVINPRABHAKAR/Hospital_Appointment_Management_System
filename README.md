@@ -8,10 +8,13 @@ This system allows patients to book appointments online and enables doctors/admi
 
 The Hospital Appointment Management System is designed to simplify the process of booking and managing hospital appointments.
 
-It helps:
+### It helps:
     - Patients book appointments online
+    
     - Doctors manage their schedules
+    
     - Admin monitor hospital activities
+    
     - Reduce manual paperwork
 
 This project demonstrates backend logic, database handling, and full-stack web development using Django.
