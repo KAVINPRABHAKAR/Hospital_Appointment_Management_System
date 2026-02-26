@@ -124,13 +124,15 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ### Now you can:
     
-    - Register as Patient
+    - Access Admin Panel 
+    
+    - Register Doctors
 
-    - Login as Doctor
+    - Register Hospital Departments
 
-    - Manage Appointments
+    - Register & Manage Appointments
 
-    - Access Admin Panel
+    - Login as Doctor 
 
 
 
