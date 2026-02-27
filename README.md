@@ -171,39 +171,58 @@ The Hospital Appointment Management System is designed to simplify the process o
 ### Admin Page
 
 
+
 ![Project Output](Output_Screenshots/admin.png)
+
+
+
 
 
 
 ### Add Hospital Departments
 
 
+
 ![Project Output](Output_Screenshots/admin1.png)
+
 
 
 ![Project Output](Output_Screenshots/admin2.png)
 
 
+
 ![Project Output](Output_Screenshots/admin3.png)
+
 
 
 ![Project Output](Output_Screenshots/admin4.png)
 
 
 
-### Add Doctor
+
+
+
+### Add Doctors
+
 
 
 ![Project Output](Output_Screenshots/admin5.png)
 
 
+
 ![Project Output](Output_Screenshots/admin6.png)
+
 
 
 ![Project Output](Output_Screenshots/admin7.png)
 
 
+
 ![Project Output](Output_Screenshots/admin8.png)
+
+
+
+
 
 
 
@@ -215,6 +234,9 @@ The Hospital Appointment Management System is designed to simplify the process o
 
 
 
+
+
+
 ### Dashboard Page Before Patient Registration
 
 
@@ -222,7 +244,11 @@ The Hospital Appointment Management System is designed to simplify the process o
 ![Project Output](Output_Screenshots/dashboard.png)
 
 
+
 ![Project Output](Output_Screenshots/dashboard1.png)
+
+
+
 
 
 
@@ -233,25 +259,35 @@ The Hospital Appointment Management System is designed to simplify the process o
 ![Project Output](Output_Screenshots/patient_register.png)
 
 
+
 ![Project Output](Output_Screenshots/patient_register1.png)
+
 
 
 ![Project Output](Output_Screenshots/patient_register2.png)
 
 
+
 ![Project Output](Output_Screenshots/patient_register3.png)
+
 
 
 ![Project Output](Output_Screenshots/patient_register4.png)
 
 
+
 ![Project Output](Output_Screenshots/patient_register5.png)
+
 
 
 ![Project Output](Output_Screenshots/patient_register6.png)
 
 
+
 ![Project Output](Output_Screenshots/patient_register7.png)
+
+
+
 
 
 
@@ -263,20 +299,30 @@ The Hospital Appointment Management System is designed to simplify the process o
 
 
 
+
+
+
 ### Doctor Queues
+
 
 
 
 ![Project Output](Output_Screenshots/queues.png)
 
 
+
 ![Project Output](Output_Screenshots/queues1.png)
+
 
 
 ![Project Output](Output_Screenshots/queues2.png)
 
 
+
 ![Project Output](Output_Screenshots/queues3.png)
+
+
+
 
 
 
@@ -287,10 +333,16 @@ The Hospital Appointment Management System is designed to simplify the process o
 ![Project Output](Output_Screenshots/analytics.png)
 
 
+
 ![Project Output](Output_Screenshots/analytics1.png)
 
 
+
 ![Project Output](Output_Screenshots/analytics2.png)
+
+
+
+
 
 
 
@@ -300,10 +352,17 @@ The Hospital Appointment Management System is designed to simplify the process o
 ![Project Output](Output_Screenshots/search.png)
 
 
+
 ![Project Output](Output_Screenshots/search1.png)
 
 
+
 ![Project Output](Output_Screenshots/search2.png)
+
+
+
+
+
 
 
 ### Daily OPD Pdf Report
@@ -311,6 +370,7 @@ The Hospital Appointment Management System is designed to simplify the process o
 
 
 ![Project Output](Output_Screenshots/pdf_page.png)
+
 
 
 ![Project Output](Output_Screenshots/pdf_page1.png)
