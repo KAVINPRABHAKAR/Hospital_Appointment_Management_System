@@ -53,7 +53,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
     
     - Data Handling: Pandas & NumPy (Core analytics logic) 
 
-    -  Environment: Pip-managed dependencies (Standardized via requirements.txt) 
+    - Environment: Pip-managed dependencies (Standardized via requirements.txt) 
 
 
 
@@ -148,6 +148,8 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 ### Now you can See:
 
+    - Login Page
+
     - Dashboard Page
 
     - Register New Patient Page
@@ -167,7 +169,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ## Output Screenshots
 
 
-### Admin Page
+# Admin Page
 
 
 ![Project Output](Output_Screenshots/admin.png)
@@ -198,7 +200,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Login Page
+# Login Page
 
 
 
@@ -206,7 +208,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Dashboard Page Before Patient Registration
+# Dashboard Page Before Patient Registration
 
 
 
@@ -217,7 +219,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Patient Registration
+# Patient Registration
 
 
 
@@ -246,7 +248,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Dashboard Page After Patient Registration
+# Dashboard Page After Patient Registration
 
 
 
@@ -254,7 +256,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Doctor Queues
+# Doctor Queues
 
 
 
@@ -271,7 +273,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Doctor Wise Analytics
+# Doctor Wise Analytics
 
 
 
@@ -285,7 +287,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 
 
 
-### Search Patient Catlog
+# Search Patient Catlog
 
 
 ![Project Output](Output_Screenshots/search.png)
@@ -297,7 +299,7 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ![Project Output](Output_Screenshots/search2.png)
 
 
-### Daily OPD Pdf Report
+# Daily OPD Pdf Report
 
 
 
