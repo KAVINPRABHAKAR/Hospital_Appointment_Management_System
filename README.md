@@ -165,6 +165,8 @@ This project demonstrates backend logic, database handling, and full-stack web d
 ## Output Screenshots
 
 
+### Admin Page
+
 
 ![Project Output](Output_Screenshots/admin.png)
 
