@@ -53,6 +53,8 @@ This project demonstrates backend logic, database handling, and full-stack web d
     
     - Data Handling: Pandas & NumPy (Core analytics logic) 
 
+    -  Environment: Pip-managed dependencies (Standardized via requirements.txt) 
+
 
 
 ## Installation & Setup
